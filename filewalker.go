@@ -27,7 +27,7 @@ func NewFile(fi io.Reader, size int64) (File, error) {
 	return bytes.NewReader(buf.Bytes()), nil
 }
 
-type WalkFileFunc func(path string, info fs.FileInfo, r io.ReaderAt, err error) error
+type WalkFileFunc func(path string, info fs.FileInfo, r File, err error) error
 
 // WalkFiles walks over all archive files, directories and symlinks and reads them into memory.
 // Allowing for reading at arbitrary positions in the extracted file.
